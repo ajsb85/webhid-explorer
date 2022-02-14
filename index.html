@@ -123,7 +123,6 @@ const sendFeatureReport = () => {
 
   let data = parseHexArray(reportTextArea.value);
   reportTextArea.value = hexview(data);
-	console.log(hexview(data));
 
 	let reportId = data.getUint8(0);
   let reportData = new Uint8Array(data.buffer).slice(1);
@@ -141,14 +140,11 @@ const receiveFeatureReport = () => {
 
   let data = parseHexArray(reportTextArea.value);
   reportTextArea.value = hexview(data);
-	console.log(hexview(data));
 
 	let reportId = data.getUint8(0);
 
   selectedDevice.receiveFeatureReport(reportId).then(data => {
     reportTextArea.value = hex8(reportId) + ' ' + hexview(data);
-	  console.log(hex8(reportId));
-	  
   });
 };
 
@@ -164,7 +160,6 @@ const selectDevice = device => {
     for (let i = 0; i < select.options.length; ++i) {
       if (select.options[i].device === device) {
         select.value = i;
-	      console.log(i);
         break;
       }
     }
