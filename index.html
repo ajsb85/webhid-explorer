@@ -92,6 +92,7 @@ const handleInputReport = event => {
   for (let byte of reportData)
     buffer += ' ' + hex8(byte);
 	inputReportTextView.innerHTML = buffer;
+	console.log(buffer);
 }
 
 const sendOutputReport = () => {
